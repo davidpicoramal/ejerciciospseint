@@ -1,10 +1,10 @@
-//###############################################################################
+//################################################################################
 //Función max: Función auxiliar que calcula el máximo de dos números
 //################################################################################
 
 Funcion num<- max(num1,num2)
 	Definir num como Entero;
-	Si num1>num1 Entonces
+	Si num1>num2 Entonces
 		num<-num1;
 	SiNo
 		num<-num2;	
@@ -17,7 +17,7 @@ FinFuncion
 
 Funcion num<- min(num1,num2)
 	Definir num como Entero;
-	Si num1<num1 Entonces
+	Si num1<num2 Entonces
 		num<-num1;
 	SiNo
 		num<-num2;	
@@ -33,8 +33,8 @@ FinFuncion
 Funcion InicializarTablero(tablero Por Referencia,visible Por Referencia)
 	Definir fila,colum como Entero;
 	//Incializo el tablero con valor 0
-	Para fila<-0 hasta 10 Hacer
-		Para colum<-0 hasta 10 Hacer
+	Para fila<-0 hasta 9 Hacer
+		Para colum<-0 hasta 9 Hacer
 			tablero[fila,colum]<-0;
 		FinPara
 	FinPara
@@ -117,8 +117,8 @@ FinFuncion
 Funcion num <- ContarCeldasDestapadas(visible)
 	Definir num,fila,colum como Entero;
 	num<-0;
-	Para fila<-0 hasta 10 Hacer
-		Para colum<-0 hasta 10 Hacer
+	Para fila<-0 hasta 9 Hacer
+		Para colum<-0 hasta 9 Hacer
 			Si visible[fila,colum] Entonces
 				num<-num+1;
 			FinSi
@@ -167,9 +167,9 @@ Funcion EscribirTablero(tablero,visible)
 	Escribir titcolum;
 	Escribir "";
 	//Recorro las tablas
-	Para fila<-0 hasta 10 Hacer
+	Para fila<-0 hasta 9 Hacer
 		Escribir sin saltar subcadena(titfilas,fila,fila),"   ";
-		Para colum<-0 hasta 10 Hacer
+		Para colum<-0 hasta 9 Hacer
 			//Si la celda es visible (está destapada)
 			Si visible[fila,colum] Entonces
 				//Celda que no tiene minas alrededor
@@ -179,12 +179,12 @@ Funcion EscribirTablero(tablero,visible)
 					//Es una mina
 					Si tablero[fila,colum]=9 Entonces
 						Escribir sin saltar "* ";
-					//Muestro el número de minas que hay en los vecinos	
+						//Muestro el número de minas que hay en los vecinos	
 					SiNo
 						Escribir Sin Saltar tablero[fila,colum]," ";
 					FinSI
 				FinSI
-			//La casilla no es visible
+				//La casilla no es visible
 			SiNo
 				Escribir sin Saltar "# ";
 			FinSI
@@ -231,9 +231,9 @@ Proceso Buscaminas
 	Si resultado=-1 Entonces
 		Escribir "Has pisado una mina!!!!!";
 		Escribir "GAME OVER";
-	//has destapado todas las casillas
+		//has destapado todas las casillas
 	SiNo
 		Escribir "YOU ARE THE PLAYER ONE!!!";
 	FinSi
 	
-FinProceso
+FinProceso
